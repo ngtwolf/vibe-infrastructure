@@ -48,7 +48,7 @@ HomeNetwork/
 
 ## AI Team Protocol Definition
 
-The AI must be configured with a team protocol that defines roles, workflows, and standards. This protocol is stored in `.cursor/rules/networkguide.mdc` (for Cursor) or provided as system instructions (for other AI assistants).
+The AI must be configured with a team protocol that defines roles, workflows, and standards. This protocol should be set up as rules: stored in `.cursor/rules/networkguide.mdc` (for Cursor) or in the appropriate rules directory for other AI assistants (check your AI assistant's documentation for the exact location).
 
 ### Complete Protocol Files
 
@@ -59,7 +59,7 @@ The complete AI team protocol is defined in two files:
 
 These files contain the detailed rules that govern how the AI operates. They should be:
 - Placed in `.cursor/rules/` (for Cursor IDE)
-- Provided as system instructions (for other AI assistants)
+- Set up as rules in the appropriate rules directory for other AI assistants (check your AI assistant's documentation for the exact location)
 - Treated as the "operating manual" for the AI team
 
 **Note**: These protocol files are extensive (2000+ lines combined) and define every aspect of the team's behavior. The specifications in this Implementation Guide summarize the key requirements, but the full protocols provide comprehensive details including:
@@ -71,11 +71,11 @@ These files contain the detailed rules that govern how the AI operates. They sho
 
 **Obtaining the protocols**:
 
-**Option 1 - This Repository**: The complete protocol files are included in this repository. Copy `networkguide.mdc` and `networkteam.mdc` from the root directory to your `.cursor/rules/` directory (for Cursor IDE) or upload them as project knowledge (for Claude.ai/Claude Desktop).
+**Option 1 - This Repository**: The complete protocol files are included in this repository. Copy `networkguide.mdc` and `networkteam.mdc` from the root directory to your `.cursor/rules/` directory (for Cursor IDE) or set them up as rules in the appropriate rules directory for other AI assistants (check your AI assistant's documentation for the exact location).
 
 **Option 2 - Create Your Own**: Use the specifications in this Implementation Guide to create your own protocol files. The key sections are documented above (Team Structure, Core Workflow, Documentation Standards, etc.), and you can customize them for your specific needs.
 
-For Cursor IDE, protocol files should be placed in `.cursor/rules/` directory. For other AI assistants, they should be provided as system instructions or project context.
+For Cursor IDE, protocol files should be placed in `.cursor/rules/` directory. For other AI assistants, they should be set up as rules (not as project knowledge or general context).
 
 ### Required Protocol Components
 
@@ -465,8 +465,9 @@ When encountering issues:
 If the AI is not behaving as expected:
 
 ### AI Not Following Protocols
-- **Check**: Are the protocol files properly loaded?
-- **Verify**: In Cursor, check `.cursor/rules/` exists and contains `networkguide.mdc`
+- **Check**: Are the protocol files properly set up as rules?
+- **Verify**: In Cursor, check `.cursor/rules/` exists and contains `networkguide.mdc` and `networkteam.mdc`
+- **Verify**: For other AI assistants, check that the files are in the rules directory (not project knowledge)
 - **Test**: Ask AI "What are your core workflow steps?" - it should respond with Verify → Research → Plan → Execute → Document
 
 ### Documentation Not Updating

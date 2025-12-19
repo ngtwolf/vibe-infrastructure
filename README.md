@@ -44,8 +44,8 @@ AI: [reads the repo, asks about your setup, creates structure]
 2. **Read the Implementation Guide** - Technical details  
    → `IMPLEMENTATION_GUIDE.md`
 
-3. **Set up AI protocols** - Copy rules to your AI assistant  
-   → `networkguide.mdc` and `networkteam.mdc`
+3. **Set up AI protocols** - Set up rules for your AI assistant  
+   → `networkguide.mdc` and `networkteam.mdc` (place in `.cursor/rules/` for Cursor, or appropriate rules directory for other AI assistants)
 
 4. **Start building** - Document your first device
 
@@ -84,12 +84,12 @@ Then tell Cursor: *"Help me set up Vibe Infrastructure. I've loaded the protocol
 ### For Claude.ai or Claude Desktop
 
 1. Create a new project called "HomeNetwork" (or similar)
-2. Upload `networkguide.mdc` and `networkteam.mdc` as project knowledge
-3. In your first conversation, say: *"I want to implement Vibe Infrastructure using the protocols I've uploaded. I have a [router brand] at [IP] to start with."*
+2. Set up `networkguide.mdc` and `networkteam.mdc` as rules (check Claude's documentation for the exact location - typically in a `.claude/` or rules directory)
+3. In your first conversation, say: *"I want to implement Vibe Infrastructure using the protocols I've set up as rules. I have a [router brand] at [IP] to start with."*
 
 ### For Other AI Assistants
 
-- Provide both `.mdc` files as system instructions or custom instructions
+- Set up both `.mdc` files as rules (check your AI assistant's documentation for the exact rules directory location)
 - Ensure your AI has: file read/write, command execution, SSH access (if managing remote devices)
 - Follow the Implementation Guide to create directory structure
 
@@ -272,8 +272,8 @@ As you use the system, it naturally documents YOUR specific hardware—your rout
 ## Troubleshooting
 
 **AI not following protocols?**
-- Verify protocol files are loaded in `.cursor/rules/` (Cursor)
-- Check that AI has access to uploaded files (Claude projects)
+- Verify protocol files are set up as rules in `.cursor/rules/` (Cursor)
+- Check that rules are properly configured (Claude and other AI assistants)
 - Ask: "What are your core workflow steps?" (Should respond: Verify → Research → Plan → Execute → Document)
 
 **Documentation not updating?**
@@ -356,7 +356,7 @@ The Unlicense (Public Domain) - See LICENSE file
 
 1. **Read `OVERVIEW.md`** - Understand the concept (10 min)
 2. **Skim `IMPLEMENTATION_GUIDE.md`** - Technical details (20 min)
-3. **Set up AI protocols** - Load the `.mdc` files (5 min)
+3. **Set up AI protocols** - Set up `networkguide.mdc` and `networkteam.mdc` as rules (5 min)
 4. **Create directory structure** - `docs/`, `inventory/`, etc. (2 min)
 5. **Document first device** - Your router (15 min)
 
