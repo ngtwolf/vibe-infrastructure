@@ -45,10 +45,12 @@ HomeNetwork/
 ```
 
 **Critical Structure Notes:**
+- Protocol files (`networkguide.mdc`, `networkteam.mdc`) must be **copied from the repository**, not created from scratch
 - `docs/devices/`, `docs/servers/`, and `docs/services/` are **directories** containing individual markdown files (e.g., `docs/devices/router.md`, `docs/servers/nas.md`)
-- `docs/network/` is a **directory** containing `topology.md` (NOT `docs/topology.md` at the root)
+- `docs/network/` is a **directory** containing `topology.md` (the file must be at `docs/network/topology.md`, NOT `docs/topology.md` at the root)
 - `docs/network/configs/` is a **required subdirectory** for storing configuration backups
 - `inventory/` contains three YAML files: `devices.yaml`, `servers.yaml`, and `services.yaml` (NOT `ip_allocation.yaml`)
+- All directories including `diagnostics/` should be created during initial setup
 
 **Note**: IP addresses shown in examples throughout this guide (e.g., 192.168.1.1, 192.168.1.200) are placeholder values from the standard private IP range. Replace them with your actual network configuration.
 
@@ -78,7 +80,7 @@ These files contain the detailed rules that govern how the AI operates. They sho
 
 **Obtaining the protocols**:
 
-**Option 1 - This Repository**: The complete protocol files are included in this repository. Copy `networkguide.mdc` and `networkteam.mdc` from the root directory to your `.cursor/rules/` directory (for Cursor IDE) or set them up as rules in the appropriate rules directory for other AI assistants (check your AI assistant's documentation for the exact location).
+**Option 1 - This Repository**: The complete protocol files are included in this repository. **Copy** (do not create) `networkguide.mdc` and `networkteam.mdc` from the repository root directory to your `.cursor/rules/` directory (for Cursor IDE) or set them up as rules in the appropriate rules directory for other AI assistants (check your AI assistant's documentation for the exact location). These files already exist in the repository and must be copied, not created from scratch.
 
 **Option 2 - Create Your Own**: Use the specifications in this Implementation Guide to create your own protocol files. The key sections are documented above (Team Structure, Core Workflow, Documentation Standards, etc.), and you can customize them for your specific needs.
 
@@ -162,28 +164,29 @@ The AI must never assume. Always verify:
 
 When setting up a new Vibe Infrastructure system, the AI should:
 
-1. **Copy protocol files from repository**:
-   - Copy `networkguide.mdc` to `.cursor/rules/networkguide.mdc` (or equivalent rules directory)
-   - Copy `networkteam.mdc` to `.cursor/rules/networkteam.mdc` (or equivalent rules directory)
-   - These files define the AI's behavior and must be in place before proceeding
+1. **Copy protocol files from repository** (DO NOT create new files - these already exist in the repository):
+   - Copy `networkguide.mdc` from the repository root to `.cursor/rules/networkguide.mdc` (or equivalent rules directory)
+   - Copy `networkteam.mdc` from the repository root to `.cursor/rules/networkteam.mdc` (or equivalent rules directory)
+   - These files define the AI's behavior and must be copied from the repository, not created from scratch
 
-2. **Create directory structure** (exactly as specified above):
-   - `docs/network/` (directory)
+2. **Create directory structure** (exactly as specified above - create ALL directories):
+   - `docs/` (root documentation directory)
+   - `docs/network/` (directory for network topology and configuration)
    - `docs/network/configs/` (subdirectory for configuration backups - REQUIRED)
    - `docs/devices/` (directory for individual device files)
    - `docs/servers/` (directory for individual server files)
    - `docs/services/` (directory for individual service files)
    - `inventory/` (for YAML inventory files)
    - `scripts/` (for automation scripts)
-   - `diagnostics/` (for troubleshooting notes, created as needed)
+   - `diagnostics/` (for troubleshooting notes - create during initial setup)
    - `.cursor/rules/` (for AI protocol files)
 
-3. **Create initial template files**:
-   - `docs/network/topology.md` (basic template - NOT `docs/topology.md`)
+3. **Create initial template files** (use exact paths specified):
+   - `docs/network/topology.md` (basic template - MUST be in `docs/network/` directory, NOT `docs/topology.md` at root)
    - `inventory/devices.yaml` (YAML structure template)
    - `inventory/servers.yaml` (YAML structure template)
    - `inventory/services.yaml` (YAML structure template - NOT `ip_allocation.yaml`)
-   - Note: Do NOT create `docs/servers.md` or `docs/services.md` as single files - these are directories containing individual `{name}.md` files
+   - **Important**: Do NOT create `docs/servers.md` or `docs/services.md` as single files - these are directories containing individual `{name}.md` files (e.g., `docs/servers/nas.md`, `docs/services/plex.md`)
 
 4. **Ask user for initial information**:
    - Router model and IP address
