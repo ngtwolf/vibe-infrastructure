@@ -30,7 +30,7 @@ Modern AI assistants can read GitHub repositories directly:
 
 ```
 You: "I want to implement Vibe Infrastructure from 
-     https://github.com/yourusername/vibe-infrastructure
+     https://github.com/ngtwolf/vibe-infrastructure
      Help me set it up for my home network."
 
 AI: [reads the repo, asks about your setup, creates structure]
