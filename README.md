@@ -81,6 +81,25 @@ mkdir -p inventory scripts diagnostics
 
 Then tell Cursor: *"Help me set up Vibe Infrastructure. I've loaded the protocol files in `.cursor/rules/`. I have a [router brand] at [IP] to start with."*
 
+### For Antigravity
+
+Antigravity uses the same `.mdc` rule format as Cursor and automatically detects rules in the `.cursor/rules/` directory. The setup is identical to Cursor:
+
+```bash
+# In your project directory:
+mkdir -p .cursor/rules
+cp networkguide.mdc .cursor/rules/
+cp networkteam.mdc .cursor/rules/
+
+# Create documentation structure:
+mkdir -p docs/{network/configs,devices,servers,services}
+mkdir -p inventory scripts diagnostics
+```
+
+**Key Difference**: Antigravity automatically indexes the `.cursor/rules/` directory when it initializes a workspace. The `alwaysApply: true` flag in `networkguide.mdc` ensures the AI assumes its Service Delivery Manager role at the start of every new chat—no manual prompting needed.
+
+**Verification**: Ask Antigravity "What is your core workflow?" It should respond with the **Verify → Research → Plan → Execute → Document** protocol defined in the rules.
+
 ### For Other AI Assistants
 
 - Set up both `.mdc` files as rules (check your AI assistant's documentation for the exact rules directory location)
